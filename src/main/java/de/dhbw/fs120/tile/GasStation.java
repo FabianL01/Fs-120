@@ -5,7 +5,7 @@ package de.dhbw.fs120.tile;
  * Dies geschieht mithilfe einer GasStation Kachel auf dem Spielfeld.
  * Hauptbestandteil sind die Attribute und Methoden, die dazu dienen das Konzept im Spiel umzusetzen.
  * @author Nick Hillebrand, Fabian Lulikat
- * @version 0.1.3
+ * @version 0.1.5
  */
 public class GasStation extends Building {
     /**
@@ -26,6 +26,17 @@ public class GasStation extends Building {
         this.difficultyLevel = difficultyLevel;
     }
 
+    /**
+     * Dieser Konstruktor wird benötigt wenn ein altes Spiel geladen werden soll
+     * @param stringFromSavedField Das ist der String, der das gespecherte Feld beschreibt bzw. der gespeichert wurde
+     */
+    public GasStation(String stringFromSavedField) {
+        String[] propertiesOfField = stringFromSavedField.split(",");
+
+        openToTraffic = false;
+        price = Double.parseDouble(propertiesOfField[0]);
+        this.difficultyLevel = propertiesOfField[1];
+    }
     /**
      * Getter für den Benzinpreis
      * @return gibt den Preis des Benzins.
@@ -59,4 +70,14 @@ public class GasStation extends Building {
 
         return moneyToPay;
     }
+
+    /**
+     *
+     * @return gibt den String zurück, der die Klasse beschreibt. Dieser wird beim speichern des Spiels gespeichert.
+     */
+    public String toString() {
+        String stringForSaving = price+","+difficultyLevel;
+        return stringForSaving;
+    }
+
 }

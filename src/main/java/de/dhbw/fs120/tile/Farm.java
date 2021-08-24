@@ -6,7 +6,7 @@ import de.dhbw.fs120.CornTank;
  * Diese Klasse implementiert das Konzept der Getreidelagerung. Dies geschieht mithilfe einer Farm Kachel auf dem Spielfeld.
  * Hauptbestandteil sind die Attribute und Methoden, die dazu dienen das Konzept im Spiel umzusetzen.
  * @author Nick Hillebrand, Fabian Lulikat
- * @version 0.1.4
+ * @version 0.1.5
  */
 public class Farm extends Building {
 
@@ -16,12 +16,21 @@ public class Farm extends Building {
      * Der Konstruktor initialisiert ein Objekt des Typ Farm.
      * Ein Farmobjekt ist nicht befahrbare Kachel auf dem Spielfeld und erhält mit den Parametern Werte für Größe und Kapazität des Silos.
      * @param FarmSiloCapacity definiert die Kapazität des Silos. So wird festgelegt, wie viel Getreide ein Spieler auf seiner Farm maximal lagern kann.
-     * @param sizeOfTile definiert die Größe der Kachel.
      */
-    public Farm(double FarmSiloCapacity, int sizeOfTile) { //Height und Width noch aktuell?
+    public Farm(double FarmSiloCapacity) { //Height und Width noch aktuell?
         openToTraffic = false;
-        tileSize    = sizeOfTile;
+
         silo = new CornTank(FarmSiloCapacity, 0);
+    }
+
+    /**
+     * Dieser Konstruktor wird benötigt wenn ein altes Spiel geladen werden soll
+     * @param stringFromSavedField Das ist der String, der das gespecherte Feld beschreibt bzw. der gespeichert wurde
+     */
+    public Farm(String stringFromSavedField) {
+        String[] propertiesOfField = stringFromSavedField.split(",");
+        openToTraffic = false;
+        silo = new CornTank( Double.parseDouble(propertiesOfField[0]), Double.parseDouble(propertiesOfField[1]));
     }
 
     /**
@@ -55,5 +64,14 @@ public class Farm extends Building {
      */
     public void reduceSilo(double amount) {
         silo.reduce(amount);
+    }
+
+    /**
+     *
+     * @return gibt den String zurück, der die Klasse beschreibt. Dieser wird beim speichern des Spiels gespeichert.
+     */
+    public String toString() {
+        String stringForSaving = silo.getMaxCapacity()+","+silo.getCurrentLevel();
+        return stringForSaving;
     }
 }

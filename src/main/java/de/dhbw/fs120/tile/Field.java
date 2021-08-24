@@ -5,7 +5,7 @@ package de.dhbw.fs120.tile;
  * Dies geschieht mithilfe von Field Kacheln auf dem Spielfeld.
  * Hauptbestandteil sind die Attribute und Methoden, die dazu dienen ein Feld im Spiel darzustellen und zu manipulieren.
  * @author Nick Hillebrand, Fabian Lulikat
- * @version 0.1.3
+ * @version 0.1.5
  */
 public class Field extends Tile {
 
@@ -30,6 +30,27 @@ public class Field extends Tile {
         this.fieldPrice = fieldPrice;
         this.difficultyLevel = difficultyLevel;
                             // Es muss noch überlegt werden wie viel ein Feld kostet ( sollte auch davon abhängig sein wie viel die Ernte einbringt und wie teuer der Sprit ist)
+      }
+
+    /**
+     * Dieser Konstruktor wird benötigt wenn ein altes Spiel geladen werden soll
+     * @param stringFromSavedField Das ist der String, der das gespecherte Feld beschreibt bzw. der gespeichert wurde
+     */
+      public Field(String stringFromSavedField) {
+
+          String[] propertiesOfField = stringFromSavedField.split(",");
+
+          int statusFromSavedField = Integer.parseInt(propertiesOfField[0]);
+          String difficultyLevelFromSavedField = propertiesOfField[1];
+          double fieldPriceOfSavedField = Double.parseDouble(propertiesOfField[2]);
+          int monthOfSavedField = Integer.parseInt(propertiesOfField[3]);
+
+
+          openToTraffic = true;
+          status = statusFromSavedField;                // bei -1 befindet sich das Feld noch nicht im Besitz des Players.......
+          this.fieldPrice = fieldPrice;
+          this.difficultyLevel = difficultyLevelFromSavedField;
+          month = monthOfSavedField;
       }
 
     /**
@@ -58,7 +79,8 @@ public class Field extends Tile {
     public double  buyField(int numberOfFieldsAlreadyOwnedByUser) throws fieldAlreadySoldException {
         if(status == -1) {
             updateStatus();
-            return getFieldPrice(numberOfFieldsAlreadyOwnedByUser);
+            setFieldPrice(numberOfFieldsAlreadyOwnedByUser);
+            return getFieldPrice();
         }
         else {
             throw new fieldAlreadySoldException();
@@ -76,17 +98,13 @@ public class Field extends Tile {
      * @return den Kaufpreis des Feldes
      * @throws fieldAlreadySoldException
      */
-    public double getFieldPrice(int numberOfFields) throws fieldAlreadySoldException{
-            if(status == -1 && numberOfFields < 6) {
-                return fieldPrice;
-            }
-            else if( status == -1 ) {
+    public void setFieldPrice(int numberOfFields) throws fieldAlreadySoldException{
+            if( status == -1 && numberOfFields >5 ) {
                 fieldPrice = fieldPrice+50000;
             }
-            else {
+            else if (status != -1){
                 throw new fieldAlreadySoldException("Das Feld gehört dir schon!");
             }
-            return fieldPrice;
     }
 
     // ernten kann man nur wenn das Getreide reif ist und wenn einem das Feld gehört
@@ -201,5 +219,14 @@ public class Field extends Tile {
                 updateStatus();
             }
         }
+    }
+
+    /**
+     *
+     * @return gibt den String zurück, der die Klasse beschreibt. Dieser wird beim speichern des Spiels gespeichert.
+     */
+    public String toString() {
+        String stringForSaving = status+","+difficultyLevel+","+fieldPrice+","+month;
+        return stringForSaving;
     }
 }
