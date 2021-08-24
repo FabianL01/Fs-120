@@ -26,10 +26,24 @@ public class Tractor extends Vehicle implements Towing {
     private GasTank gasTank;
 
     /**
-     * Bei der Erzeugung wird der Treibstofftank voll befüllt.
+     * Bei der Erzeugung von einem neuen Spiel wird der Treibstofftank standardmäßig voll befüllt.
      */
     public Tractor(){
         gasTank = new GasTank(GAS_CAPACITY, GAS_CAPACITY);
+    }
+
+    /**
+     * Wenn ein vorhandener Spielstand geladen wird, wird der Traktor mit dem alten Tankstand initialisiert.
+     * @param gasLevel gibt den alte Tankstand aus der Save Datei mit.
+     */
+    public Tractor(String gasLevel){
+        Double gasTankLevel = 0d;
+        try {
+            gasTankLevel = Double.parseDouble(gasLevel);
+        } catch (NumberFormatException e){
+            System.out.println(e);
+        }
+        gasTank = new GasTank(GAS_CAPACITY, gasTankLevel);
     }
 
     @Override
@@ -54,6 +68,14 @@ public class Tractor extends Vehicle implements Towing {
     @Override
     public void attach() {
 
+    }
+
+    /**
+     * Die toString Methode des Traktors liefert den Tankstand, so das dieser gespeichert und später geladen werden kann.
+     * @return liefert den Tankstand als String für eine Verwendung in der Speicherdatei zurück.
+     */
+    public String toString(){
+        return (String.valueOf(this.gasTank.getCurrentLevel()));
     }
 
 }
