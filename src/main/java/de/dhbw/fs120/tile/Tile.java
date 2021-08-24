@@ -1,5 +1,11 @@
 package de.dhbw.fs120.tile;
 
+import de.dhbw.fs120.game.DifficultyLevel;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
+
 import java.util.Random;
 import java.util.stream.DoubleStream;
 
@@ -9,12 +15,26 @@ import java.util.stream.DoubleStream;
  * @author Nick Hillebrand, Fabian Lulikat
  * @version 0.1.3
  */
-public abstract class Tile {
+public abstract class Tile extends StackPane {
+    protected static final Image IMG = new Image(String.valueOf(Tile.class.getResource("/img/medieval_tilesheet.png")));
+    protected ImageView imageView = new ImageView();
+
+    public Tile(){}
+
+    public Tile(Rectangle2D viewportRect){
+        imageView.setImage(IMG);
+        imageView.setViewport(viewportRect);
+        imageView.setFitWidth(32);
+        imageView.setPreserveRatio(true);
+        imageView.setSmooth(true);
+        imageView.setCache(true);
+        this.getChildren().add(imageView);
+    }
 
     /**
      * Die Schwierigkeitsstufe des Spiels
      */
-    protected String difficultyLevel;
+    protected DifficultyLevel difficultyLevel;
 
     /**
      * Die Größe der Kachel

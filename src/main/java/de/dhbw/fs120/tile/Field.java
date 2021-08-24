@@ -1,5 +1,8 @@
 package de.dhbw.fs120.tile;
 
+import de.dhbw.fs120.game.DifficultyLevel;
+import javafx.geometry.Rectangle2D;
+
 /**
  * Diese Klasse implementiert das Konzept eines Getreidefelds und seiner Bewirtschaftung im Rahmen des Spiels.
  * Dies geschieht mithilfe von Field Kacheln auf dem Spielfeld.
@@ -8,6 +11,12 @@ package de.dhbw.fs120.tile;
  * @version 0.1.3
  */
 public class Field extends Tile {
+    private static final Rectangle2D[] IMG_VIEW = {
+            new Rectangle2D(96*2+32, 96*6+32, 64, 64),
+            new Rectangle2D(96*2+32, 96*6+32, 64, 64),
+            new Rectangle2D(96*2+32, 96*6+32, 64, 64),
+            new Rectangle2D(96*2+32, 96*6+32, 64, 64),
+            new Rectangle2D(96*2+32, 96*6+32, 64, 64)};
 
     /**
      * Preis des Feldes
@@ -24,7 +33,8 @@ public class Field extends Tile {
      * Jedes Feld ist befahrbar, enthält keine Ernteerträge, hat einen definierten Kaufpreis
      * und befindet sich nicht im Besitz des Spielers, was durch den Status -1 repräsentiert wird.
      */
-    public Field(String difficultyLevel, double fieldPrice) {
+    public Field(DifficultyLevel difficultyLevel, double fieldPrice) {
+        super(IMG_VIEW[0]);
         openToTraffic = true;
         status = -1;                // bei -1 befindet sich das Feld noch nicht im Besitz des Players.......
         this.fieldPrice = fieldPrice;

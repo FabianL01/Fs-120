@@ -1,5 +1,8 @@
 package de.dhbw.fs120.tile;
 
+import de.dhbw.fs120.game.DifficultyLevel;
+import javafx.geometry.Rectangle2D;
+
 /**
  * Diese Klasse implementiert das Konzept einer Tankstelle und des Betankens von Fahrzeugen an dieser im Rahmen des Spiels.
  * Dies geschieht mithilfe einer GasStation Kachel auf dem Spielfeld.
@@ -8,6 +11,8 @@ package de.dhbw.fs120.tile;
  * @version 0.1.3
  */
 public class GasStation extends Building {
+    private static final Rectangle2D IMG_BG_VIEW = new Rectangle2D(96*2+32, 96*1+32, 64, 64);
+    private static final Rectangle2D IMG_BD_VIEW = new Rectangle2D(96*8+32, 96*6+32, 64, 64);
     /**
      * Benzinpreis
      */
@@ -15,13 +20,12 @@ public class GasStation extends Building {
 
     /**
      * Der Konstruktor initialisiert ein neues Objekt der Klasse GasStation.
-     * @param sizeOfTile gibt die Größe der Kachel an.
      * @param startPrice setzt den ursprünglichen Preis von Benzin.
      * @param difficultyLevel übergibt dem Objekt die Schwiriegkeitstufe des Spiels.
      */
-    public GasStation(int sizeOfTile, double startPrice, String difficultyLevel) {
+    public GasStation(double startPrice, DifficultyLevel difficultyLevel) {
+        super(IMG_BD_VIEW, IMG_BG_VIEW, 2, 2);
         openToTraffic = false;
-        tileSize = sizeOfTile;
         price = startPrice;
         this.difficultyLevel = difficultyLevel;
     }
