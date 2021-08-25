@@ -2,6 +2,7 @@ package de.dhbw.fs120.vehicle;
 
 import de.dhbw.fs120.CapacityMismatchException;
 import de.dhbw.fs120.CornTank;
+import javafx.scene.control.Alert;
 
 /**
  * Ein Mähdrescher, welcher vom Spieler gefahren werden kann. Das Fahrzeug besitzt einen Tank für Treibstoff und Getreide.
@@ -36,11 +37,35 @@ public class Harvester extends Vehicle {
     private GasTank gasTank;
 
     /**
-     * Bei der Erzeugung wird der Treibstofftank voll befüllt und der Getreidetank ist leer.
+     * Bei der Erzeugung von einem neuen Spiel wird der Treibstofftank standardmäßig voll befüllt und der Getreidetank ist leer.
      */
     public Harvester(){
         gasTank = new GasTank(GAS_CAPACITY, GAS_CAPACITY);
         cornTank = new CornTank(CORN_CAPACITY, 0);
+    }
+
+    /**
+     * Wenn ein vorhandener Spielstand geladen wird, wird der Mähdrescher mit dem alten Stand
+     * von GasTank und CornTank initialisiert.
+     * Mögliche Fehler werden durch einen popup Dialog dem Spieler angezeigt, bevor sich das Programm schließt.
+     * @param savedString liefert den alten Stand von GasTank und CornTank aus der Save Datei.
+     */
+    public Harvester(String savedString){
+        String[] saves = savedString.split(";");
+
+        try {
+            gasTank = new GasTank(GAS_CAPACITY, Double.valueOf(saves[0]));
+            cornTank = new CornTank(CORN_CAPACITY, Double.valueOf(saves[1]));
+        } catch (NumberFormatException | NullPointerException e){
+            System.out.println("Gespeicherte Daten konnten nicht geladen werden: " + e);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Fehler");
+            alert.setHeaderText("Es ist ein unvorhergesehener Fehler aufgetreten.");
+            alert.setContentText("Gespeicherte Daten konnten nicht geladen werden: " + e);
+            alert.showAndWait();
+
+            System.exit(1);
+        }
     }
 
     /**
@@ -65,5 +90,15 @@ public class Harvester extends Vehicle {
     @Override
     public void checkInteraction() {
 
+    }
+
+    /**
+     * Die toString Methode des Mähdreschers liefert den GasTank, sowie den CornTank Stand,
+     * so dass diese gespeichert und später wieder geladen werden können.
+     * @return liefert den Stand von GasTank und CornTank als String für die Verwendung in der Speicherdatei zurück.
+     */
+    public String toString(){
+        return (String.valueOf(this.gasTank.getCurrentLevel()) + ";" +
+                String.valueOf(this.cornTank.getCurrentLevel()));
     }
 }

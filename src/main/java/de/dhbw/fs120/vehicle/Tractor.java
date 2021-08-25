@@ -1,6 +1,7 @@
 package de.dhbw.fs120.vehicle;
 
 import de.dhbw.fs120.CapacityMismatchException;
+import javafx.scene.control.Alert;
 
 /**
  * Tranktor mit dem sich der Spieler auf dem Spielfeld bewegen kann. Bei der Bewegung verbraucht der Traktor Treibstoff
@@ -34,16 +35,22 @@ public class Tractor extends Vehicle implements Towing {
 
     /**
      * Wenn ein vorhandener Spielstand geladen wird, wird der Traktor mit dem alten Tankstand initialisiert.
-     * @param gasLevel gibt den alte Tankstand aus der Save Datei mit.
+     * Mögliche Fehler werden durch einen popup Dialog dem Spieler angezeigt, bevor sich das Programm schließt.
+     * @param savedString liefert den alten Tankstand aus der Save Datei.
      */
-    public Tractor(String gasLevel){
-        Double gasTankLevel = 0d;
+    public Tractor(String savedString){
         try {
-            gasTankLevel = Double.parseDouble(gasLevel);
-        } catch (NumberFormatException e){
-            System.out.println(e);
+            gasTank = new GasTank(GAS_CAPACITY, Double.valueOf(savedString));
+        } catch (NumberFormatException | NullPointerException e){
+            System.out.println("Gespeicherte Daten konnten nicht geladen werden: " + e);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Fehler");
+            alert.setHeaderText("Es ist ein unvorhergesehener Fehler aufgetreten.");
+            alert.setContentText("Gespeicherte Daten konnten nicht geladen werden: " + e);
+            alert.showAndWait();
+
+            System.exit(1);
         }
-        gasTank = new GasTank(GAS_CAPACITY, gasTankLevel);
     }
 
     @Override
