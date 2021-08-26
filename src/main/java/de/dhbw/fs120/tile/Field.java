@@ -7,11 +7,14 @@ import javafx.geometry.Rectangle2D;
  * Diese Klasse implementiert das Konzept eines Getreidefelds und seiner Bewirtschaftung im Rahmen des Spiels.
  * Dies geschieht mithilfe von Field Kacheln auf dem Spielfeld.
  * Hauptbestandteil sind die Attribute und Methoden, die dazu dienen ein Feld im Spiel darzustellen und zu manipulieren.
- * @author Nick Hillebrand, Fabian Lulikat
- * @version 0.1.3
+ * @author Lena Hammerer, Nick Hillebrand, Fabian Lulikat
+ * @version 0.1.4
  */
 public class Field extends Tile {
-    private static final Rectangle2D[] IMG_VIEW = {
+    /**
+     * Die Bildausschnitte für die grafische Darstellung des Feldes.
+     */
+    private static final Rectangle2D[] IMG_VIEW = { // aktuell noch immer gleich
             new Rectangle2D(96*2+32, 96*6+32, 64, 64),
             new Rectangle2D(96*2+32, 96*6+32, 64, 64),
             new Rectangle2D(96*2+32, 96*6+32, 64, 64),

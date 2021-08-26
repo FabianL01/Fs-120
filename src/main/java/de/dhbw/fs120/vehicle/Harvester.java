@@ -2,6 +2,7 @@ package de.dhbw.fs120.vehicle;
 
 import de.dhbw.fs120.CapacityMismatchException;
 import de.dhbw.fs120.CornTank;
+import de.dhbw.fs120.game.Direction;
 
 /**
  * Ein Mähdrescher, welcher vom Spieler gefahren werden kann. Das Fahrzeug besitzt einen Tank für Treibstoff und Getreide.
@@ -49,7 +50,7 @@ public class Harvester extends Vehicle {
      * @param direction Die Richtung in welche sich das bewegliche Objekt bewegen soll (Nord, Ost, Süd, West).
      */
     @Override
-    public void move(String direction) {
+    public void move(Direction direction) {
         try {
             gasTank.reduce(GAS_CONSUMPTION);
         } catch(CapacityMismatchException e){

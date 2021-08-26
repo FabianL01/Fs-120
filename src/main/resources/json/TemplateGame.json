@@ -1,13 +1,13 @@
 {
     "gameData": {
         "saveDate": "2018-12-10T13:45:00.000Z",
-        "difficulty": 1,
+        "difficulty": "LEICHT",
         "month": 7,
         "player": {
             "name": "Felix",
             "money": 123456.78,
-            "xPos": 10,
-            "yPos": 20
+            "xPos": 15,
+            "yPos": 16
         },
         "siloLevel": 200,
         "gasPrice": 1.43,

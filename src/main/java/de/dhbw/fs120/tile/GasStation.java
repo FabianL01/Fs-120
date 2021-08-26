@@ -7,11 +7,17 @@ import javafx.geometry.Rectangle2D;
  * Diese Klasse implementiert das Konzept einer Tankstelle und des Betankens von Fahrzeugen an dieser im Rahmen des Spiels.
  * Dies geschieht mithilfe einer GasStation Kachel auf dem Spielfeld.
  * Hauptbestandteil sind die Attribute und Methoden, die dazu dienen das Konzept im Spiel umzusetzen.
- * @author Nick Hillebrand, Fabian Lulikat
- * @version 0.1.3
+ * @author Lena Hammerer, Nick Hillebrand, Fabian Lulikat
+ * @version 0.1.4
  */
 public class GasStation extends Building {
+    /**
+     * Der Bildausschnitt für die grafische Darstellung des Grundstückes.
+     */
     private static final Rectangle2D IMG_BG_VIEW = new Rectangle2D(96*2+32, 96*1+32, 64, 64);
+    /**
+     * Der Bildausschnitt für die grafische Darstellung der Tankstelle.
+     */
     private static final Rectangle2D IMG_BD_VIEW = new Rectangle2D(96*8+32, 96*6+32, 64, 64);
     /**
      * Benzinpreis
@@ -24,7 +30,7 @@ public class GasStation extends Building {
      * @param difficultyLevel übergibt dem Objekt die Schwiriegkeitstufe des Spiels.
      */
     public GasStation(double startPrice, DifficultyLevel difficultyLevel) {
-        super(IMG_BD_VIEW, IMG_BG_VIEW, 2, 2);
+        super(IMG_BD_VIEW, IMG_BG_VIEW, 2, 2, "Tankstelle");
         openToTraffic = false;
         price = startPrice;
         this.difficultyLevel = difficultyLevel;

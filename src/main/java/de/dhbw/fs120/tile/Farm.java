@@ -2,18 +2,21 @@ package de.dhbw.fs120.tile;
 
 import de.dhbw.fs120.CornTank;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.effect.BlendMode;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 
 /**
  * Diese Klasse implementiert das Konzept der Getreidelagerung. Dies geschieht mithilfe einer Farm Kachel auf dem Spielfeld.
  * Hauptbestandteil sind die Attribute und Methoden, die dazu dienen das Konzept im Spiel umzusetzen.
- * @author Nick Hillebrand, Fabian Lulikat
+ * @author Lena Hammerer, Nick Hillebrand, Fabian Lulikat
  * @version 0.1.4
  */
 public class Farm extends Building {
+    /**
+     * Der Bildausschnitt für die grafische Darstellung des Grundstückes.
+     */
     private static final Rectangle2D IMG_BG_VIEW = new Rectangle2D(96*2+32, 96*1+32, 64, 64);
+    /**
+     * Der Bildausschnitt für die grafische Darstellung der Farm.
+     */
     private static final Rectangle2D IMG_BD_VIEW = new Rectangle2D(96*7+32, 96*6+32, 64, 64);
 
     private CornTank silo;
@@ -24,7 +27,7 @@ public class Farm extends Building {
      * @param FarmSiloCapacity definiert die Kapazität des Silos. So wird festgelegt, wie viel Getreide ein Spieler auf seiner Farm maximal lagern kann.
      */
     public Farm(double FarmSiloCapacity) {
-        super(IMG_BD_VIEW, IMG_BG_VIEW, 3, 2);
+        super(IMG_BD_VIEW, IMG_BG_VIEW, 3, 2, "Hofstelle");
         openToTraffic = false;
         silo = new CornTank(FarmSiloCapacity, 0);
     }

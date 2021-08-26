@@ -12,19 +12,28 @@ import java.util.stream.DoubleStream;
 /**
  * Diese Klasse implementiert das abstrakte Konzept einer Kachel.
  * Das Spielfeld besteht aus Kacheln verschiedener Arten, die alle von dieser Klasse Tile erben.
- * @author Nick Hillebrand, Fabian Lulikat
- * @version 0.1.3
+ * Die Klasse erbt selbst von dem Layout-Container {@link StackPane}.
+ * @author Lena Hammerer, Nick Hillebrand, Fabian Lulikat
+ * @version 0.1.4
  */
 public abstract class Tile extends StackPane {
-    protected static final Image IMG = new Image(String.valueOf(Tile.class.getResource("/img/medieval_tilesheet.png")));
+    /**
+     * Dieses Bild wird als Tilesheet für alle Kacheln des Spiels genutzt.
+     */
+    protected static final Image TILESHEET = new Image(String.valueOf(Tile.class.getResource("/img/medieval_tilesheet.png")));
+    /**
+     * Ein Bild für die grafische Darstellung der Kachel.
+     */
     protected ImageView imageView = new ImageView();
 
-    public Tile(){}
-
+    /**
+     * Bei der Erzeugung einer Kachel muss der gewünschte Bildausschnitt mitgegeben werden.
+     * @param viewportRect Der Bildausschnitt für die grafische Darstellung der Kachel
+     */
     public Tile(Rectangle2D viewportRect){
-        imageView.setImage(IMG);
+        imageView.setImage(TILESHEET);
         imageView.setViewport(viewportRect);
-        imageView.setFitWidth(32);
+        imageView.setFitWidth(32);  // Standardgröße 32
         imageView.setPreserveRatio(true);
         imageView.setSmooth(true);
         imageView.setCache(true);

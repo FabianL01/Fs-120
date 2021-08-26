@@ -1,6 +1,7 @@
 package de.dhbw.fs120.vehicle;
 
 import de.dhbw.fs120.CapacityMismatchException;
+import de.dhbw.fs120.game.Direction;
 
 /**
  * Tranktor mit dem sich der Spieler auf dem Spielfeld bewegen kann. Bei der Bewegung verbraucht der Traktor Treibstoff
@@ -33,7 +34,7 @@ public class Tractor extends Vehicle implements Towing {
     }
 
     @Override
-    public void move(String direction) {
+    public void move(Direction direction) {
         try {
             gasTank.reduce(GAS_CONSUMPTION);
         } catch(CapacityMismatchException e){

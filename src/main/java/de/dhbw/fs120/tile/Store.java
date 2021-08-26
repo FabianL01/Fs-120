@@ -6,11 +6,17 @@ import javafx.geometry.Rectangle2D;
 /**
  * Diese Klasse implementiert das Konzept eines Ladens und des Verkaufen von Getreide im Laden.
  * Dies geschieht mithilfe einer Store Kachel auf dem Spielfeld.
- * @author Nick Hillebrand, Fabian Lulikat
- * @version 0.1.3
+ * @author Lena Hammerer, Nick Hillebrand, Fabian Lulikat
+ * @version 0.1.4
  */
 public class Store extends Building {
+    /**
+     * Der Bildausschnitt für die grafische Darstellung des Grundstückes.
+     */
     private static final Rectangle2D IMG_BG_VIEW = new Rectangle2D(96*2+32, 96*1+32, 64, 64);
+    /**
+     * Der Bildausschnitt für die grafische Darstellung des Ladens.
+     */
     private static final Rectangle2D IMG_BD_VIEW = new Rectangle2D(96*15+32, 96*2+32, 64, 64);
 
     /**
@@ -26,7 +32,7 @@ public class Store extends Building {
      * @param difficultyLevel die Schwiriegkeitstufe des Spiels.
      */
     public Store(DifficultyLevel difficultyLevel, int month) {
-        super(IMG_BD_VIEW, IMG_BG_VIEW, 2, 2);
+        super(IMG_BD_VIEW, IMG_BG_VIEW, 2, 2, "Landhalle");
         openToTraffic = false;
         this.month = month;                                  // Spiel startet im August oder????? setter wäre hier unnötig, nur update macht Sinn
         this.difficultyLevel = difficultyLevel;

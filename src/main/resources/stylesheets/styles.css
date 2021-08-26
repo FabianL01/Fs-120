@@ -1,0 +1,10 @@
+/* https://docs.oracle.com/javafx/2/css_tutorial/jfxpub-css_tutorial.htm */
+
+.root{
+    -fx-font-family: "Comic Sans MS";
+}
+
+.label {
+    -fx-font-size: 11pt;
+    -fx-text-fill: rgb(256,256,256)
+}

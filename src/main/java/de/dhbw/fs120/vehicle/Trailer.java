@@ -1,6 +1,7 @@
 package de.dhbw.fs120.vehicle;
 
 import de.dhbw.fs120.CornTank;
+import de.dhbw.fs120.game.Direction;
 
 /**
  * Ein Kipper, welcher an einen {@link Tractor} angehängt und vom {@link de.dhbw.fs120.game.Player} gefahren werden kann. Der Kipper besitzt einen Tank für Getreide.
@@ -31,7 +32,7 @@ public class Trailer extends Attachable {
     }
 
     @Override
-    public void move(String direction) {
+    public void move(Direction direction) {
 
     }
 

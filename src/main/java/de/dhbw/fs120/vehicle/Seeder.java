@@ -1,5 +1,7 @@
 package de.dhbw.fs120.vehicle;
 
+import de.dhbw.fs120.game.Direction;
+
 /**
  * Eine Sämaschine, welche an einen {@link Tractor} angehängt und vom {@link de.dhbw.fs120.game.Player} gefahren werden kann.
  * Die Aufgabe der Sämaschine besteht darin, Getreide auf einem {@link de.dhbw.fs120.tile.Field} auszusähen, welches zur Aussaht bereit ist.
@@ -18,7 +20,7 @@ public class Seeder extends Attachable{
     }
 
     @Override
-    public void move(String direction) {
+    public void move(Direction direction) {
 
     }
 
