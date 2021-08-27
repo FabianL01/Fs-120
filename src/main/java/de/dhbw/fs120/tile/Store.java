@@ -1,12 +1,23 @@
 package de.dhbw.fs120.tile;
 
+import de.dhbw.fs120.game.DifficultyLevel;
+import javafx.geometry.Rectangle2D;
+
 /**
  * Diese Klasse implementiert das Konzept eines Ladens und des Verkaufen von Getreide im Laden.
  * Dies geschieht mithilfe einer Store Kachel auf dem Spielfeld.
- * @author Nick Hillebrand, Fabian Lulikat
+ * @author Lena Hammerer, Nick Hillebrand, Fabian Lulikat
  * @version 0.1.5
  */
 public class Store extends Building {
+    /**
+     * Der Bildausschnitt für die grafische Darstellung des Grundstückes.
+     */
+    private static final Rectangle2D IMG_BG_VIEW = new Rectangle2D(96*2+32, 96*1+32, 64, 64);
+    /**
+     * Der Bildausschnitt für die grafische Darstellung des Ladens.
+     */
+    private static final Rectangle2D IMG_BD_VIEW = new Rectangle2D(96*15+32, 96*2+32, 64, 64);
 
     /**
      * Getreidepreis
@@ -18,14 +29,13 @@ public class Store extends Building {
     /**
      * Der Konstruktor erzeugt ein neues Objekt der Klasse Store.
      * Dabei werden die folgenden Parameter übergeben:
-     * @param sizeOfTile die Größe der Store Kachel
      * @param difficultyLevel die Schwiriegkeitstufe des Spiels.
      */
-    public Store(int sizeOfTile, String difficultyLevel, int month) {
+    public Store(DifficultyLevel difficultyLevel, int month) {
+        super(IMG_BD_VIEW, IMG_BG_VIEW, 2, 2, "Landhalle");
         openToTraffic = false;
         this.month = month;                                  // Spiel startet im August oder????? setter wäre hier unnötig, nur update macht Sinn
         this.difficultyLevel = difficultyLevel;
-        tileSize = sizeOfTile;
 
         int[][] intervals = {{290, 330}, {310, 360}, {290, 330}, {260, 300}, {230, 270}, {210, 250}, {180, 230}, {160, 220}, {180, 230}, {210, 250}, {230, 270}, {260, 300}};
         intervalsOfMonths = intervals;

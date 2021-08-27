@@ -1,0 +1,1967 @@
+{
+    "gameData": {
+        "saveDate": "2018-12-10T13:45:00.000Z",
+        "difficulty": "LEICHT",
+        "month": 7,
+        "player": {
+            "name": "Felix",
+            "money": 123456.78,
+            "xPos": 15,
+            "yPos": 16
+        },
+        "siloLevel": 200,
+        "gasPrice": 1.43,
+        "cornPrice": 123.2,
+        "tractor": {
+            "gasLevel": 60,
+            "xPos": 27,
+            "yPos": 11
+        },
+        "harvester": {
+            "gasLevel": 60,
+            "cornLevel": 7,
+            "xPos": 28,
+            "yPos": 12
+        },
+        "trailer": {
+            "cornLevel": 6,
+            "xPos": 29,
+            "yPos": 13
+        },
+        "cultivator": {
+            "xPos": 25,
+            "yPos": 10
+        },
+        "seeder": {
+            "xPos": 24,
+            "yPos": 9
+        },
+        "map": [
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },{
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": null
+            },
+            {
+                "type": null
+            },
+            {
+                "type": null
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": null
+            },
+            {
+                "type": null
+            },
+            {
+                "type": null
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Field",
+                "value": ""
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": null
+            },
+            {
+                "type": null
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": "Street"
+            },
+            {
+                "type": null
+            },
+            {
+                "type": null
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": null
+            },
+            {
+                "type": null
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": null
+            },
+            {
+                "type": null
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Meadow"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            },
+            {
+                "type": "Forest"
+            }
+        ]
+    }
+}

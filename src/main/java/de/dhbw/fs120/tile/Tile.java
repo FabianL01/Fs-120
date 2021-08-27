@@ -1,20 +1,49 @@
 package de.dhbw.fs120.tile;
 
+import de.dhbw.fs120.game.DifficultyLevel;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
+
 import java.util.Random;
 import java.util.stream.DoubleStream;
 
 /**
  * Diese Klasse implementiert das abstrakte Konzept einer Kachel.
  * Das Spielfeld besteht aus Kacheln verschiedener Arten, die alle von dieser Klasse Tile erben.
- * @author Nick Hillebrand, Fabian Lulikat
- * @version 0.1.3
+ * Die Klasse erbt selbst von dem Layout-Container {@link StackPane}.
+ * @author Lena Hammerer, Nick Hillebrand, Fabian Lulikat
+ * @version 0.1.4
  */
-public abstract class Tile {
+public abstract class Tile extends StackPane {
+    /**
+     * Dieses Bild wird als Tilesheet für alle Kacheln des Spiels genutzt.
+     */
+    protected static final Image TILESHEET = new Image(String.valueOf(Tile.class.getResource("/img/medieval_tilesheet.png")));
+    /**
+     * Ein Bild für die grafische Darstellung der Kachel.
+     */
+    protected ImageView imageView = new ImageView();
+
+    /**
+     * Bei der Erzeugung einer Kachel muss der gewünschte Bildausschnitt mitgegeben werden.
+     * @param viewportRect Der Bildausschnitt für die grafische Darstellung der Kachel
+     */
+    public Tile(Rectangle2D viewportRect){
+        imageView.setImage(TILESHEET);
+        imageView.setViewport(viewportRect);
+        imageView.setFitWidth(32);  // Standardgröße 32
+        imageView.setPreserveRatio(true);
+        imageView.setSmooth(true);
+        imageView.setCache(true);
+        this.getChildren().add(imageView);
+    }
 
     /**
      * Die Schwierigkeitsstufe des Spiels
      */
-    protected String difficultyLevel;
+    protected DifficultyLevel difficultyLevel;
 
     /**
      * Die Größe der Kachel

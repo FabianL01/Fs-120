@@ -1,5 +1,7 @@
 package de.dhbw.fs120.vehicle;
 
+import de.dhbw.fs120.game.Direction;
+
 /**
  * Ein Cultivator, welcher an einen {@link Tractor} angehängt und vom {@link de.dhbw.fs120.game.Player} gefahren werden kann.
  * Die Aufgabe des Grubbers besteht darin, ein {@link de.dhbw.fs120.tile.Field} umzubrechen, welches abgeernted ist.
@@ -13,14 +15,14 @@ package de.dhbw.fs120.vehicle;
 public class Cultivator extends Attachable{
 
     /**
-     * Erzeugt einen Cultivator ohne Position.
+     * Erzeugt einen Cultivator.
      */
     public Cultivator(){
 
     }
 
     @Override
-    public void move(String direction) {
+    public void move(Direction direction) {
 
     }
 

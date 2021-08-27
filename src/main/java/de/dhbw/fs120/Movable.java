@@ -1,5 +1,6 @@
 package de.dhbw.fs120;
 
+import de.dhbw.fs120.game.Direction;
 import de.dhbw.fs120.vehicle.Vehicle;
 
 /**
@@ -17,7 +18,7 @@ public interface Movable {
       * betretbaren {@link de.dhbw.fs120.tile.Tile} negativ ausgefallen ist.
       * @param direction Die Richtung in welche sich das bewegliche Objekt bewegen soll (Nord, Ost, Süd, West).
       */
-     public void move(String direction);
+     public void move(Direction direction);
 
      /**
       * Es wird überprüft ob die geplante Bewegung eine Kollision zur Folge hätte.
