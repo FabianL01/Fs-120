@@ -15,7 +15,7 @@ import de.dhbw.fs120.game.Direction;
 public class Cultivator extends Attachable{
 
     /**
-     * Erzeugt einen Cultivator ohne Position.
+     * Erzeugt einen Cultivator.
      */
     public Cultivator(){
 

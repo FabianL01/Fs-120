@@ -13,7 +13,7 @@ import de.dhbw.fs120.game.Direction;
 public class Seeder extends Attachable{
 
     /**
-     * Erzeugt einen Seeder ohne Position.
+     * Erzeugt einen Seeder.
      */
     public Seeder(){
 

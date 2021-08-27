@@ -26,7 +26,7 @@ public class Trailer extends Attachable {
     private CornTank cornTank;
 
     /**
-     * Bei der Erzeugung des Trailer wird ein leerer Getreidetank definiert.
+     * Bei der Erzeugung von einem neuen Spiel wird der Trailer mit einem leereren Getreidetank initialisiert.
      */
     public Trailer(){
         cornTank  = new CornTank(CORN_CAPACITY, 0);
