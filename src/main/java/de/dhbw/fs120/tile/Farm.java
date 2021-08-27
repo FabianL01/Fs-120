@@ -7,7 +7,7 @@ import javafx.geometry.Rectangle2D;
  * Diese Klasse implementiert das Konzept der Getreidelagerung. Dies geschieht mithilfe einer Farm Kachel auf dem Spielfeld.
  * Hauptbestandteil sind die Attribute und Methoden, die dazu dienen das Konzept im Spiel umzusetzen.
  * @author Lena Hammerer, Nick Hillebrand, Fabian Lulikat
- * @version 0.1.4
+ * @version 0.1.5
  */
 public class Farm extends Building {
     /**
@@ -30,6 +30,16 @@ public class Farm extends Building {
         super(IMG_BD_VIEW, IMG_BG_VIEW, 3, 2, "Hofstelle");
         openToTraffic = false;
         silo = new CornTank(FarmSiloCapacity, 0);
+    }
+
+    /**
+     * Dieser Konstruktor wird benötigt wenn ein altes Spiel geladen werden soll
+     * @param stringFromSavedField Das ist der String, der das gespecherte Feld beschreibt bzw. der gespeichert wurde
+     */
+    public Farm(String stringFromSavedField) {
+        String[] propertiesOfField = stringFromSavedField.split(",");
+        openToTraffic = false;
+        silo = new CornTank( Double.parseDouble(propertiesOfField[0]), Double.parseDouble(propertiesOfField[1]));
     }
 
     /**
@@ -63,5 +73,14 @@ public class Farm extends Building {
      */
     public void reduceSilo(double amount) {
         silo.reduce(amount);
+    }
+
+    /**
+     *
+     * @return gibt den String zurück, der die Klasse beschreibt. Dieser wird beim speichern des Spiels gespeichert.
+     */
+    public String toString() {
+        String stringForSaving = silo.getMaxCapacity()+","+silo.getCurrentLevel();
+        return stringForSaving;
     }
 }

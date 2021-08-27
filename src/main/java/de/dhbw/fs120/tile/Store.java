@@ -7,7 +7,7 @@ import javafx.geometry.Rectangle2D;
  * Diese Klasse implementiert das Konzept eines Ladens und des Verkaufen von Getreide im Laden.
  * Dies geschieht mithilfe einer Store Kachel auf dem Spielfeld.
  * @author Lena Hammerer, Nick Hillebrand, Fabian Lulikat
- * @version 0.1.4
+ * @version 0.1.5
  */
 public class Store extends Building {
     /**
@@ -36,6 +36,22 @@ public class Store extends Building {
         openToTraffic = false;
         this.month = month;                                  // Spiel startet im August oder????? setter wäre hier unnötig, nur update macht Sinn
         this.difficultyLevel = difficultyLevel;
+
+        int[][] intervals = {{290, 330}, {310, 360}, {290, 330}, {260, 300}, {230, 270}, {210, 250}, {180, 230}, {160, 220}, {180, 230}, {210, 250}, {230, 270}, {260, 300}};
+        intervalsOfMonths = intervals;
+    }
+
+    /**
+     * Dieser Konstruktor wird benötigt wenn ein altes Spiel geladen werden soll
+     * @param stringFromSavedField Das ist der String, der das gespecherte Feld beschreibt bzw. der gespeichert wurde
+     */
+    public Store(String stringFromSavedField) {
+        String[] propertiesOfField = stringFromSavedField.split(",");
+
+        openToTraffic = false;
+        this.month = Integer.parseInt(propertiesOfField[2]);                                  // Spiel startet im August oder????? setter wäre hier unnötig, nur update macht Sinn
+        this.difficultyLevel = propertiesOfField[1];
+        cornPrice = Double.parseDouble(propertiesOfField[0]);
 
         int[][] intervals = {{290, 330}, {310, 360}, {290, 330}, {260, 300}, {230, 270}, {210, 250}, {180, 230}, {160, 220}, {180, 230}, {210, 250}, {230, 270}, {260, 300}};
         intervalsOfMonths = intervals;
@@ -89,5 +105,14 @@ public class Store extends Building {
             month = 1;
         }
         setCurrentPrice();
+    }
+
+    /**
+     *
+     * @return gibt den String zurück, der die Klasse beschreibt. Dieser wird beim speichern des Spiels gespeichert.
+     */
+    public String toString() {
+        String stringForSaving = cornPrice+","+difficultyLevel+","+month;
+        return stringForSaving;
     }
 }
