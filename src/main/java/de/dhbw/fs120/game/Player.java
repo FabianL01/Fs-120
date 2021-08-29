@@ -1,7 +1,9 @@
 package de.dhbw.fs120.game;
 
 import de.dhbw.fs120.Movable;
+import de.dhbw.fs120.tile.Field;
 import de.dhbw.fs120.tile.Tile;
+import de.dhbw.fs120.tile.fieldAlreadySoldException;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.geometry.Bounds;
@@ -84,8 +86,21 @@ public class Player extends Pane implements Movable {
     }
 
     // Zur Testzwecken der Steuerhinterziehung - to be removed
-    public void makeRich(){
-        this.money.set(1000000000d);
+    public void makePoor(){
+        this.money.set(1d);
+    }
+
+    public void buyField(Field field, int ownedFields) throws fieldAlreadySoldException, NotEnoughMoneyException {
+        if(field.getStatus() == -1){
+            if(money.getValue() - field.getFieldPrice() >= 0){
+                double costs = field.buyField(ownedFields);
+                money.setValue(money.getValue() - costs);
+            } else {
+                throw new NotEnoughMoneyException();
+            }
+        } else {
+            throw new fieldAlreadySoldException();
+        }
     }
 
     /**

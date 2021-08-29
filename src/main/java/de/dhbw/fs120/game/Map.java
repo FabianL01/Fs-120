@@ -86,6 +86,18 @@ public class Map extends StackPane {
         return null;
     }
 
+
+    public int getNumberOfOwnedFields(){
+        int numberOfOwnedFields = 0;
+        for (Node node : tiles.getChildren()) {
+            if (node instanceof Field){
+                if(((Field)node).getStatus() != -1)
+                    numberOfOwnedFields++;
+            }
+        }
+        return numberOfOwnedFields;
+    }
+
     /**
      * Diese Methode befüllt den Layout-Container für die Info-Texte mit Labels und den entsprechenden Werten.
      * @param difficultyLevel Der Schwierigkeitsgrad soll während des Spielens erkennbar sein.

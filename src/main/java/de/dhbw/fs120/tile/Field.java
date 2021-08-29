@@ -50,7 +50,7 @@ public class Field extends Tile {
      * @param stringFromSavedField Das ist der String, der das gespecherte Feld beschreibt bzw. der gespeichert wurde
      */
       public Field(String stringFromSavedField) {
-
+          super(IMG_VIEW[0]);
           String[] propertiesOfField = stringFromSavedField.split(",");
 
           int statusFromSavedField = Integer.parseInt(propertiesOfField[0]);
@@ -62,7 +62,7 @@ public class Field extends Tile {
           openToTraffic = true;
           status = statusFromSavedField;                // bei -1 befindet sich das Feld noch nicht im Besitz des Players.......
           this.fieldPrice = fieldPrice;
-          this.difficultyLevel = difficultyLevelFromSavedField;
+          this.difficultyLevel = DifficultyLevel.valueOf(difficultyLevelFromSavedField);
           month = monthOfSavedField;
       }
 
@@ -90,14 +90,9 @@ public class Field extends Tile {
      * @throws fieldAlreadySoldException, falls sich das Feld schon im Besitz des Spielers befindet.
      */
     public double  buyField(int numberOfFieldsAlreadyOwnedByUser) throws fieldAlreadySoldException {
-        if(status == -1) {
-            updateStatus();
-            setFieldPrice(numberOfFieldsAlreadyOwnedByUser);
-            return getFieldPrice();
-        }
-        else {
-            throw new fieldAlreadySoldException();
-        }
+        setFieldPrice(numberOfFieldsAlreadyOwnedByUser);
+        updateStatus();
+        return getFieldPrice();
     }
 
 

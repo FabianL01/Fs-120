@@ -1,5 +1,8 @@
 package de.dhbw.fs120.game;
 
+import de.dhbw.fs120.tile.Field;
+import de.dhbw.fs120.tile.Tile;
+import de.dhbw.fs120.tile.fieldAlreadySoldException;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -72,7 +75,6 @@ public class Game {
 
         // Bei Tastatureingabe
         gameScene.setOnKeyPressed(keyEvent -> {
-            player.makeRich(); // No worries - nur Testzwecke
             // WASD für die Bewegung des Spielers und später der Fahrzeuge
             switch (keyEvent.getCode()) {
                 case W:
@@ -91,6 +93,19 @@ public class Game {
                 case D:
                     if(gameMap.getTileAtPos(player.getGridColumn()+1, player.getGridRow()).isOpenToTraffic())
                         player.move(Direction.EAST);
+                    break;
+                case I:
+                    Tile currentTile = gameMap.getTileAtPos(player.getGridColumn(), player.getGridRow());
+                    if(currentTile instanceof Field){
+                        try{
+                            player.buyField((Field)currentTile, gameMap.getNumberOfOwnedFields());
+                            System.out.println("Feld gekauft!");
+                        } catch(fieldAlreadySoldException e){
+                            System.out.println(e);
+                        } catch (NotEnoughMoneyException e){
+                            System.out.println(e);
+                        }
+                    }
                     break;
             }
         });

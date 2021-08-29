@@ -16,7 +16,7 @@ public class StartScreen extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         stage.setTitle("Farming Simulator");
-                BorderPane root = FXMLLoader.load(getClass().getResource("sceneStart.fxml"));
+                BorderPane root = FXMLLoader.load(getClass().getResource("../../../../../resources/de/dhbw/fs120/sceneStart.fxml"));
         Scene scene = new Scene(root, 700, 700);
         stage.setScene(scene);
         stage.show();

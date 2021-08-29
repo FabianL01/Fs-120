@@ -96,7 +96,7 @@
                <children>
                   <ImageView id="wallpaper" fx:id="pngTItleScreen" blendMode="SRC_ATOP" fitHeight="404.0" fitWidth="688.0" opacity="0.65" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="startScreenImage.jpeg" />
+                        <Image url="../../../img/startScreenImage.jpeg" />
                      </image>
                   </ImageView>
                   <Label fx:id="labelTitleScreen" layoutX="190.0" layoutY="113.0" prefHeight="69.0" prefWidth="307.0" text="Farming Simulator" textAlignment="CENTER">

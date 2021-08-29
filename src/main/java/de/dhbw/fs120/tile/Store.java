@@ -46,11 +46,12 @@ public class Store extends Building {
      * @param stringFromSavedField Das ist der String, der das gespecherte Feld beschreibt bzw. der gespeichert wurde
      */
     public Store(String stringFromSavedField) {
+        super(IMG_BD_VIEW, IMG_BG_VIEW, 2, 2, "Landhalle");
         String[] propertiesOfField = stringFromSavedField.split(",");
 
         openToTraffic = false;
         this.month = Integer.parseInt(propertiesOfField[2]);                                  // Spiel startet im August oder????? setter wäre hier unnötig, nur update macht Sinn
-        this.difficultyLevel = propertiesOfField[1];
+        this.difficultyLevel = DifficultyLevel.valueOf(propertiesOfField[1]);
         cornPrice = Double.parseDouble(propertiesOfField[0]);
 
         int[][] intervals = {{290, 330}, {310, 360}, {290, 330}, {260, 300}, {230, 270}, {210, 250}, {180, 230}, {160, 220}, {180, 230}, {210, 250}, {230, 270}, {260, 300}};
