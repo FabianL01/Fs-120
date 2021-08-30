@@ -9,7 +9,11 @@ import javafx.animation.Timeline;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.util.Duration;
+
+import java.util.Optional;
 
 /**
  * In dieser Klasse entsteht die für das Spiel hauptsächlich genutzte Scene. Diese wird nach dem Start eines neuen
@@ -76,6 +80,7 @@ public class Game {
         // Bei Tastatureingabe
         gameScene.setOnKeyPressed(keyEvent -> {
             // WASD für die Bewegung des Spielers und später der Fahrzeuge
+            // I für die Interaktion mit Spielelementen
             switch (keyEvent.getCode()) {
                 case W:
                     // nur Bewegen, wenn die nächste Kachel befahrbar ist!
@@ -96,14 +101,32 @@ public class Game {
                     break;
                 case I:
                     Tile currentTile = gameMap.getTileAtPos(player.getGridColumn(), player.getGridRow());
+                    // Feld kaufen
                     if(currentTile instanceof Field){
+                        Field field = (Field)currentTile;
                         try{
-                            player.buyField((Field)currentTile, gameMap.getNumberOfOwnedFields());
-                            System.out.println("Feld gekauft!");
-                        } catch(fieldAlreadySoldException e){
-                            System.out.println(e);
-                        } catch (NotEnoughMoneyException e){
-                            System.out.println(e);
+                            // TODO: Zuerst Prüfung, ob Feld bereits gekauft bevor nach einer Bestätigung gefragt wird?
+                            Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
+                            confirm.setTitle("Feld kaufen");
+                            confirm.setHeaderText(null);
+                            confirm.setContentText("Feld jetzt für " + String.format("%.2f €", field.getFieldPrice()) + " kaufen?");
+
+                            Optional<ButtonType> result = confirm.showAndWait();
+                            if (result.get() == ButtonType.OK){
+                                field.buyField(player, gameMap.getNumberOfOwnedFields());
+                            }
+                        } catch(fieldAlreadySoldException e){   // Feld wurde bereist gekauft
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setTitle("Feld kaufen");
+                            alert.setHeaderText(null);
+                            alert.setContentText(e.getMessage());
+                            alert.showAndWait();
+                        } catch (NotEnoughMoneyException e){    // Der Spieler hat nicht genug Geld
+                            Alert alert = new Alert(Alert.AlertType.WARNING);
+                            alert.setTitle("Feld kaufen");
+                            alert.setHeaderText(null);
+                            alert.setContentText(e.getMessage());
+                            alert.showAndWait();
                         }
                     }
                     break;

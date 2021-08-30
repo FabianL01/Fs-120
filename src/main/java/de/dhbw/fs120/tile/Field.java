@@ -1,6 +1,8 @@
 package de.dhbw.fs120.tile;
 
 import de.dhbw.fs120.game.DifficultyLevel;
+import de.dhbw.fs120.game.NotEnoughMoneyException;
+import de.dhbw.fs120.game.Player;
 import javafx.geometry.Rectangle2D;
 
 /**
@@ -14,8 +16,8 @@ public class Field extends Tile {
     /**
      * Die Bildausschnitte für die grafische Darstellung des Feldes.
      */
-    private static final Rectangle2D[] IMG_VIEW = { // aktuell noch immer gleich
-            new Rectangle2D(96*2+32, 96*6+32, 64, 64),
+    private static final Rectangle2D[] IMG_VIEWS = { // aktuell noch immer gleich
+            new Rectangle2D(96*1+32, 96*1+32, 64, 64),
             new Rectangle2D(96*2+32, 96*6+32, 64, 64),
             new Rectangle2D(96*2+32, 96*6+32, 64, 64),
             new Rectangle2D(96*2+32, 96*6+32, 64, 64),
@@ -24,7 +26,7 @@ public class Field extends Tile {
     /**
      * Preis des Feldes
      */
-    private double fieldPrice;
+    private static double fieldPrice;
 
     /**
      * Status des Feldes (0-4 Wachstumsstufen; -1 = nicht im Besitz des Spielers)
@@ -37,7 +39,7 @@ public class Field extends Tile {
      * und befindet sich nicht im Besitz des Spielers, was durch den Status -1 repräsentiert wird.
      */
     public Field(DifficultyLevel difficultyLevel, double fieldPrice) {
-        super(IMG_VIEW[0]);
+        super(IMG_VIEWS[0]);
         openToTraffic = true;
         status = -1;                // bei -1 befindet sich das Feld noch nicht im Besitz des Players.......
         this.fieldPrice = fieldPrice;
@@ -50,7 +52,7 @@ public class Field extends Tile {
      * @param stringFromSavedField Das ist der String, der das gespecherte Feld beschreibt bzw. der gespeichert wurde
      */
       public Field(String stringFromSavedField) {
-          super(IMG_VIEW[0]);
+          super(IMG_VIEWS[0]);
           String[] propertiesOfField = stringFromSavedField.split(",");
 
           int statusFromSavedField = Integer.parseInt(propertiesOfField[0]);
@@ -86,16 +88,17 @@ public class Field extends Tile {
      * Diese Methode implementiert den Erwerb eines Feldes.
      * Dafür wird der Status des Feldes verändert und anschließend der Kaufpreis zurückgegeben.
      * @param numberOfFieldsAlreadyOwnedByUser
+     * @param player Der Spieler, der das Feld versucht zu kaufen.
      * @return den ermittelten Kaufpreis.
      * @throws fieldAlreadySoldException, falls sich das Feld schon im Besitz des Spielers befindet.
+     * @throws NotEnoughMoneyException Fehler, falls der Spieler nicht genug Geld für den Kauf hat.
      */
-    public double  buyField(int numberOfFieldsAlreadyOwnedByUser) throws fieldAlreadySoldException {
+    public double  buyField(Player player, int numberOfFieldsAlreadyOwnedByUser) throws fieldAlreadySoldException, NotEnoughMoneyException {
         setFieldPrice(numberOfFieldsAlreadyOwnedByUser);
+        player.spendMoney(getFieldPrice());
         updateStatus();
         return getFieldPrice();
     }
-
-
 
     /**
      * Diese Methode ermittelt den Kaufpreis eines Feldes, besitzt der Spieler mehr als 5 Felder, dann steigt der Kaufpreis weiterer Felder.
@@ -199,6 +202,7 @@ public class Field extends Tile {
         else{
             status = 0;
         }
+        imageView.setViewport(IMG_VIEWS[status+1]);
     }
 
     // diese Methode wurde schon in Tile implementiert um die Zeit vielleicht auch beim Getreidepreis zu berücksichtigen (siehe Klasse Store)

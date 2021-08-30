@@ -86,7 +86,11 @@ public class Map extends StackPane {
         return null;
     }
 
-
+    /**
+     * Diese Hilfsmethode wird zur Ermittlung der Anzahl der Felder auf dem Spielfeld, die der Spieler bereits in
+     * seinem Besitzt hat, genutzt.
+     * @return Anzahl der bereits gekauften Felder.
+     */
     public int getNumberOfOwnedFields(){
         int numberOfOwnedFields = 0;
         for (Node node : tiles.getChildren()) {
@@ -199,7 +203,7 @@ public class Map extends StackPane {
                         tileList.add(new Street());
                         break;
                     case "Field":
-                        tileList.add(new Field(DifficultyLevel.LEICHT, 20)); // random again
+                        tileList.add(new Field(DifficultyLevel.LEICHT, 30000)); // random again
                         break;
                     default:
                         tileList.add(new Meadow()); // bei null einfach eine Wiese
