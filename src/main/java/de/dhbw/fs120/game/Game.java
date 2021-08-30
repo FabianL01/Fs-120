@@ -21,7 +21,8 @@ import javafx.util.Duration;
  * Tastatureingabe) statt.
  *
  * @author Lena Hammerer
- * @version 0.1.2
+ * @author Jonas Zagst
+ * @version 0.1.3
  */
 public class Game {
     /**
@@ -65,7 +66,7 @@ public class Game {
         // TODO: Überprüfen Konzept der Beziehung zwischen Game, Map, Player bzgl. EventHandling
         player = new Player();
         // Die Map braucht den Pfad zur eigentlichen Datei, den globalen Monat und Spieler.
-        gameMap = new Map("/json/TemplateGame.json", month, player);
+        gameMap = new Map("src/main/resources/json/TemplateGame.json", month, player);
         // aktuell ist eine Kachel 32x32 groß und wird im 30x20 Raster angeordnet.
         // TODO: Überprüfen ob statische Variablen für Rastergröße sinnvoll. Evtl. auch über Konstruktor, aber vermutlich schwierig, da die Tile Images eine fixe größe haben
         gameScene = new Scene(gameMap, TILE_SIZE*30, TILE_SIZE*20);

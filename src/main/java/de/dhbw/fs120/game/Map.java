@@ -23,7 +23,8 @@ import java.util.ArrayList;
  * Das Spielfeld erbt von {@link StackPane} damit ein einfaches Schichten der unterschiedlichen Ebenen ermöglicht wird.
  *
  * @author Lena Hammerer
- * @version 0.1.2
+ * @author Jonas Zagst
+ * @version 0.1.3
  */
 public class Map extends StackPane {
     // TODO: Überprüfen ob eine Eigenschaft StackPane mit Getter sinnvoller wäre (siehe auch Game).
@@ -50,7 +51,8 @@ public class Map extends StackPane {
      */
     public Map(String filename, IntegerProperty month, Player player){
         // Lesen der Spieldaten aus der JSON-Datei
-        JSONObject gameData = readGameDataFromJSON(filename);
+        JSONHelper jsonHelper = new JSONHelper();
+        JSONObject gameData = (JSONObject) jsonHelper.readJSONFromFile(filename).get("gameData");
 
         // Der Jahreszyklus startet beim Laden des Spiels in Game standardmäßig mit 1. Hier wird der korrekte Monat aus
         // dem Speicherstand gesetzt
@@ -215,40 +217,4 @@ public class Map extends StackPane {
         }
         return tileList;
     }
-
-    /**
-     * Diese Hilfsmethode liest die Spieldaten aus einer JSON-Datei aus.
-     * @param filename Pfad zur auszulesenden JSON-Datei.
-     * @return Ein {@link JSONObject} mit den Spieldaten.
-     */
-    private JSONObject readGameDataFromJSON(String filename){
-        try {
-            InputStream inputStream = getClass().getResourceAsStream(filename);
-            String data = readFromInputStream(inputStream);
-            JSONObject jo = new JSONObject(data);
-            return (JSONObject) jo.get("gameData");
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-        return new JSONObject();
-    }
-
-    /**
-     * Diese Hilfsmethode liest eine Textdatei (auch JSON) als InputStream ein.
-     * Quelle: https://www.baeldung.com/reading-file-in-java#2-helper-method
-     * @param inputStream Die zu lesende Datei.
-     * @return Ein String bestehend aus dem Inhalt der Datei.
-     * @throws IOException Das Lesen ist fehlgeschlagen.
-     */
-    private String readFromInputStream(InputStream inputStream) throws IOException {
-        StringBuilder resultStringBuilder = new StringBuilder();
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(inputStream))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                resultStringBuilder.append(line).append("\n");
-            }
-        }
-        return resultStringBuilder.toString();
-    }
-
 }
