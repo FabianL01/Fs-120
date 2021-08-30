@@ -10,10 +10,7 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.util.Duration;
-
-import java.util.Optional;
 
 /**
  * In dieser Klasse entsteht die für das Spiel hauptsächlich genutzte Scene. Diese wird nach dem Start eines neuen
@@ -103,18 +100,8 @@ public class Game {
                     Tile currentTile = gameMap.getTileAtPos(player.getGridColumn(), player.getGridRow());
                     // Feld kaufen
                     if(currentTile instanceof Field){
-                        Field field = (Field)currentTile;
                         try{
-                            // TODO: Zuerst Prüfung, ob Feld bereits gekauft bevor nach einer Bestätigung gefragt wird?
-                            Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
-                            confirm.setTitle("Feld kaufen");
-                            confirm.setHeaderText(null);
-                            confirm.setContentText("Feld jetzt für " + String.format("%.2f €", field.getFieldPrice()) + " kaufen?");
-
-                            Optional<ButtonType> result = confirm.showAndWait();
-                            if (result.get() == ButtonType.OK){
-                                field.buyField(player, gameMap.getNumberOfOwnedFields());
-                            }
+                            ((Field)currentTile).buyField(player, gameMap.getNumberOfOwnedFields());
                         } catch(fieldAlreadySoldException e){   // Feld wurde bereist gekauft
                             Alert alert = new Alert(Alert.AlertType.INFORMATION);
                             alert.setTitle("Feld kaufen");
