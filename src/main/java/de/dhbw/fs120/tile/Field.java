@@ -1,7 +1,13 @@
 package de.dhbw.fs120.tile;
 
 import de.dhbw.fs120.game.DifficultyLevel;
+import de.dhbw.fs120.game.NotEnoughMoneyException;
+import de.dhbw.fs120.game.Player;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+
+import java.util.Optional;
 
 /**
  * Diese Klasse implementiert das Konzept eines Getreidefelds und seiner Bewirtschaftung im Rahmen des Spiels.
@@ -14,8 +20,8 @@ public class Field extends Tile {
     /**
      * Die Bildausschnitte für die grafische Darstellung des Feldes.
      */
-    private static final Rectangle2D[] IMG_VIEW = { // aktuell noch immer gleich
-            new Rectangle2D(96*2+32, 96*6+32, 64, 64),
+    private static final Rectangle2D[] IMG_VIEWS = { // aktuell noch immer gleich
+            new Rectangle2D(96*1+32, 96*1+32, 64, 64),
             new Rectangle2D(96*2+32, 96*6+32, 64, 64),
             new Rectangle2D(96*2+32, 96*6+32, 64, 64),
             new Rectangle2D(96*2+32, 96*6+32, 64, 64),
@@ -24,7 +30,7 @@ public class Field extends Tile {
     /**
      * Preis des Feldes
      */
-    private double fieldPrice;
+    private static double fieldPrice;
 
     /**
      * Status des Feldes (0-4 Wachstumsstufen; -1 = nicht im Besitz des Spielers)
@@ -37,7 +43,7 @@ public class Field extends Tile {
      * und befindet sich nicht im Besitz des Spielers, was durch den Status -1 repräsentiert wird.
      */
     public Field(DifficultyLevel difficultyLevel, double fieldPrice) {
-        super(IMG_VIEW[0]);
+        super(IMG_VIEWS[0]);
         openToTraffic = true;
         status = -1;                // bei -1 befindet sich das Feld noch nicht im Besitz des Players.......
         this.fieldPrice = fieldPrice;
@@ -50,7 +56,7 @@ public class Field extends Tile {
      * @param stringFromSavedField Das ist der String, der das gespecherte Feld beschreibt bzw. der gespeichert wurde
      */
       public Field(String stringFromSavedField) {
-
+          super(IMG_VIEWS[0]);
           String[] propertiesOfField = stringFromSavedField.split(",");
 
           int statusFromSavedField = Integer.parseInt(propertiesOfField[0]);
@@ -62,7 +68,7 @@ public class Field extends Tile {
           openToTraffic = true;
           status = statusFromSavedField;                // bei -1 befindet sich das Feld noch nicht im Besitz des Players.......
           this.fieldPrice = fieldPrice;
-          this.difficultyLevel = difficultyLevelFromSavedField;
+          this.difficultyLevel = DifficultyLevel.valueOf(difficultyLevelFromSavedField);
           month = monthOfSavedField;
       }
 
@@ -84,23 +90,29 @@ public class Field extends Tile {
 
     /**
      * Diese Methode implementiert den Erwerb eines Feldes.
-     * Dafür wird der Status des Feldes verändert und anschließend der Kaufpreis zurückgegeben.
+     * Dafür wird der Status des Feldes verändert und der Kontostand des Spielers reduziert.
      * @param numberOfFieldsAlreadyOwnedByUser
-     * @return den ermittelten Kaufpreis.
+     * @param player Der Spieler, der das Feld versucht zu kaufen.
      * @throws fieldAlreadySoldException, falls sich das Feld schon im Besitz des Spielers befindet.
+     * @throws NotEnoughMoneyException Fehler, falls der Spieler nicht genug Geld für den Kauf hat.
      */
-    public double  buyField(int numberOfFieldsAlreadyOwnedByUser) throws fieldAlreadySoldException {
-        if(status == -1) {
-            updateStatus();
-            setFieldPrice(numberOfFieldsAlreadyOwnedByUser);
-            return getFieldPrice();
-        }
-        else {
+    public void  buyField(Player player, int numberOfFieldsAlreadyOwnedByUser) throws fieldAlreadySoldException, NotEnoughMoneyException {
+        if(getStatus() == -1){
+            Alert confirm = new Alert(Alert.AlertType.CONFIRMATION);
+            confirm.setTitle("Feld kaufen");
+            confirm.setHeaderText(null);
+            confirm.setContentText("Feld jetzt für " + String.format("%.2f €", getFieldPrice()) + " kaufen?");
+
+            Optional<ButtonType> result = confirm.showAndWait();
+            if (result.get() == ButtonType.OK){
+                setFieldPrice(numberOfFieldsAlreadyOwnedByUser);
+                player.spendMoney(getFieldPrice());
+                updateStatus();
+            }
+        } else {
             throw new fieldAlreadySoldException();
         }
     }
-
-
 
     /**
      * Diese Methode ermittelt den Kaufpreis eines Feldes, besitzt der Spieler mehr als 5 Felder, dann steigt der Kaufpreis weiterer Felder.
@@ -108,16 +120,11 @@ public class Field extends Tile {
                  *     // da das Spiel sonst zu schnell durchgespielt wäre (steigender Gewinn des players bei mehr Feldern würde hier
                  *     // ansonsten dafür sorgen, dass der Kauf neuer Felder immer schneller möglich wird )
      * @param numberOfFields gibt die Anzahl der Felder im Besitz des Spielers.
-     * @return den Kaufpreis des Feldes
-     * @throws fieldAlreadySoldException
      */
-    public void setFieldPrice(int numberOfFields) throws fieldAlreadySoldException{
-            if( status == -1 && numberOfFields >5 ) {
-                fieldPrice = fieldPrice+50000;
-            }
-            else if (status != -1){
-                throw new fieldAlreadySoldException("Das Feld gehört dir schon!");
-            }
+    public void setFieldPrice(int numberOfFields) {
+        if(numberOfFields >= 4) {
+            fieldPrice = fieldPrice+50000;
+        }
     }
 
     // ernten kann man nur wenn das Getreide reif ist und wenn einem das Feld gehört
@@ -204,6 +211,7 @@ public class Field extends Tile {
         else{
             status = 0;
         }
+        imageView.setViewport(IMG_VIEWS[status+1]);
     }
 
     // diese Methode wurde schon in Tile implementiert um die Zeit vielleicht auch beim Getreidepreis zu berücksichtigen (siehe Klasse Store)

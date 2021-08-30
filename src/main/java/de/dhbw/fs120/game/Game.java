@@ -1,11 +1,15 @@
 package de.dhbw.fs120.game;
 
+import de.dhbw.fs120.tile.Field;
+import de.dhbw.fs120.tile.Tile;
+import de.dhbw.fs120.tile.fieldAlreadySoldException;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.util.Duration;
 
 /**
@@ -72,8 +76,8 @@ public class Game {
 
         // Bei Tastatureingabe
         gameScene.setOnKeyPressed(keyEvent -> {
-            player.makeRich(); // No worries - nur Testzwecke
             // WASD für die Bewegung des Spielers und später der Fahrzeuge
+            // I für die Interaktion mit Spielelementen
             switch (keyEvent.getCode()) {
                 case W:
                     // nur Bewegen, wenn die nächste Kachel befahrbar ist!
@@ -91,6 +95,27 @@ public class Game {
                 case D:
                     if(gameMap.getTileAtPos(player.getGridColumn()+1, player.getGridRow()).isOpenToTraffic())
                         player.move(Direction.EAST);
+                    break;
+                case I:
+                    Tile currentTile = gameMap.getTileAtPos(player.getGridColumn(), player.getGridRow());
+                    // Feld kaufen
+                    if(currentTile instanceof Field){
+                        try{
+                            ((Field)currentTile).buyField(player, gameMap.getNumberOfOwnedFields());
+                        } catch(fieldAlreadySoldException e){   // Feld wurde bereist gekauft
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setTitle("Feld kaufen");
+                            alert.setHeaderText(null);
+                            alert.setContentText(e.getMessage());
+                            alert.showAndWait();
+                        } catch (NotEnoughMoneyException e){    // Der Spieler hat nicht genug Geld
+                            Alert alert = new Alert(Alert.AlertType.WARNING);
+                            alert.setTitle("Feld kaufen");
+                            alert.setHeaderText(null);
+                            alert.setContentText(e.getMessage());
+                            alert.showAndWait();
+                        }
+                    }
                     break;
             }
         });

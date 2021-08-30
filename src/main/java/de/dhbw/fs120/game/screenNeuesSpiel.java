@@ -10,7 +10,7 @@ public class screenNeuesSpiel extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         stage.setTitle("Farming Simulator");
-        BorderPane root = FXMLLoader.load(getClass().getResource("sceneNeuesSpiel.fxml"));
+        BorderPane root = FXMLLoader.load(getClass().getResource("../../../../../resources/de/dhbw/fs120/sceneNeuesSpiel.fxml"));
         Scene scene = new Scene(root, 700, 700);
         stage.setScene(scene);
         stage.show();

@@ -87,6 +87,22 @@ public class Map extends StackPane {
     }
 
     /**
+     * Diese Hilfsmethode wird zur Ermittlung der Anzahl der Felder auf dem Spielfeld, die der Spieler bereits in
+     * seinem Besitzt hat, genutzt.
+     * @return Anzahl der bereits gekauften Felder.
+     */
+    public int getNumberOfOwnedFields(){
+        int numberOfOwnedFields = 0;
+        for (Node node : tiles.getChildren()) {
+            if (node instanceof Field){
+                if(((Field)node).getStatus() != -1)
+                    numberOfOwnedFields++;
+            }
+        }
+        return numberOfOwnedFields;
+    }
+
+    /**
      * Diese Methode befüllt den Layout-Container für die Info-Texte mit Labels und den entsprechenden Werten.
      * @param difficultyLevel Der Schwierigkeitsgrad soll während des Spielens erkennbar sein.
      * @param month Der aktuelle fiktive Monat soll angezeigt werden. Binding über Property.
@@ -187,7 +203,7 @@ public class Map extends StackPane {
                         tileList.add(new Street());
                         break;
                     case "Field":
-                        tileList.add(new Field(DifficultyLevel.LEICHT, 20)); // random again
+                        tileList.add(new Field(DifficultyLevel.LEICHT, 30000)); // random again
                         break;
                     default:
                         tileList.add(new Meadow()); // bei null einfach eine Wiese

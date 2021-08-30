@@ -41,11 +41,12 @@ public class GasStation extends Building {
      * @param stringFromSavedField Das ist der String, der das gespecherte Feld beschreibt bzw. der gespeichert wurde
      */
     public GasStation(String stringFromSavedField) {
+        super(IMG_BD_VIEW, IMG_BG_VIEW, 2, 2, "Tankstelle");
         String[] propertiesOfField = stringFromSavedField.split(",");
 
         openToTraffic = false;
         price = Double.parseDouble(propertiesOfField[0]);
-        this.difficultyLevel = propertiesOfField[1];
+        this.difficultyLevel = DifficultyLevel.valueOf(propertiesOfField[1]);
     }
     /**
      * Getter für den Benzinpreis

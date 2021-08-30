@@ -5,9 +5,10 @@ import de.dhbw.fs120.tile.Tile;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.geometry.Bounds;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 
 /**
  * Spieler, der sich auf dem Spielfeld bewegen und mit den unterschiedlichen Spielobjekten interagieren kann.
@@ -16,8 +17,22 @@ import javafx.scene.shape.Rectangle;
  * @version 0.1.2
  */
 public class Player extends Pane implements Movable {
-    // Wird sobald Asset vorhanden mit ImageView ersetzt
-    private Rectangle playerRec = new Rectangle(16, 16, Color.RED);
+    /**
+     * Dieses Bild wird als Spritesheet für den Spieler genutzt.
+     */
+    protected static final Image SPRITESHEET = new Image(String.valueOf(Player.class.getResource("/img/player_spritesheet.png")));
+    /**
+    * Der Bildausschnitte für die grafische Darstellung des Spielers.
+    */
+    private static final Rectangle2D[] IMG_VIEWS = {
+            new Rectangle2D(12, 10, 64, 135),
+            new Rectangle2D(12, 150, 64, 135),
+            new Rectangle2D(12, 288, 64, 135),
+            new Rectangle2D(12, 425, 64, 135)};
+    /**
+     * Ein Bild für die grafische Darstellung des Spielers.
+     */
+    protected ImageView imageView = new ImageView();
     /**
      * Die aktuelle Spaltenposition des Spielers auf dem 30x20 Raster des Spielfeldes.
      */
@@ -39,7 +54,13 @@ public class Player extends Pane implements Movable {
      * Konstruktor zur Erzeugung eines Spielers ohne initiale Daten.
      */
     public Player(){
-        this.getChildren().add(playerRec);
+        imageView.setImage(SPRITESHEET);
+        imageView.setViewport(IMG_VIEWS[0]);
+        imageView.setFitHeight(32);  // Standardgröße 32
+        imageView.setPreserveRatio(true);
+        imageView.setSmooth(true);
+        imageView.setCache(true);
+        this.getChildren().add(imageView);
     }
 
     /**
@@ -56,7 +77,7 @@ public class Player extends Pane implements Movable {
         gridColumn = x;
         gridRow = y;
         // Spieler in der Mitte der angegebenen Kachel platzieren
-        playerRec.relocate(gridColumn*32 + playerRec.getWidth()/2, gridRow*32 + playerRec.getHeight()/2);
+        imageView.relocate(gridColumn*32 + 8, gridRow*32);
     }
 
     /**
@@ -83,13 +104,23 @@ public class Player extends Pane implements Movable {
         return name;
     }
 
-    // Zur Testzwecken der Steuerhinterziehung - to be removed
-    public void makeRich(){
-        this.money.set(1000000000d);
+    /**
+     * Diese Methode reduziert den Kontostand des Spielers um einen bestimmten Betrag, sofern das Konto entsprechend
+     * gedeckt ist.
+     * @param amount Betrag, um den der Kontostand des Spielers reduziert werden soll.
+     * @throws NotEnoughMoneyException Fehler, falls Kontostand den Betrag nicht abdeckt.
+     */
+    public void spendMoney(double amount) throws NotEnoughMoneyException {
+        if(money.getValue() - amount >= 0) {
+            money.setValue(money.getValue() - amount);
+        } else {
+            throw new NotEnoughMoneyException();
+        }
     }
 
     /**
      * Mit dieser Methode kann der Spieler auf dem Spielfeld in eine bestimmte Richtung bewegt werden.
+     * Die grafische Darstellung wird entsprechend angepasst.
      * @param direction Die Richtung in welche sich das bewegliche Objekt bewegen soll (Nord, Ost, Süd, West).
      */
     @Override
@@ -97,19 +128,23 @@ public class Player extends Pane implements Movable {
         // Kollisionscheck wird aktuell in Game vor der Bewegung durchgeführt
         switch (direction) {
             case NORTH:
-                playerRec.setTranslateY(playerRec.getTranslateY() - 32);
+                imageView.setTranslateY(imageView.getTranslateY() - 32);
+                imageView.setViewport(IMG_VIEWS[2]);
                 gridRow--;
                 break;
             case SOUTH:
-                playerRec.setTranslateY(playerRec.getTranslateY() + 32);
+                imageView.setTranslateY(imageView.getTranslateY() + 32);
+                imageView.setViewport(IMG_VIEWS[0]);
                 gridRow++;
                 break;
             case WEST:
-                playerRec.setTranslateX(playerRec.getTranslateX() - 32);
+                imageView.setTranslateX(imageView.getTranslateX() - 32);
+                imageView.setViewport(IMG_VIEWS[3]);
                 gridColumn--;
                 break;
             case EAST:
-                playerRec.setTranslateX(playerRec.getTranslateX() + 32);
+                imageView.setTranslateX(imageView.getTranslateX() + 32);
+                imageView.setViewport(IMG_VIEWS[1]);
                 gridColumn++;
                 break;
         }
@@ -121,7 +156,7 @@ public class Player extends Pane implements Movable {
     // Möglichkeit der Prüfung über die Bounds der Objekte anstatt der Grid-Position
     // wird aktuell nicht genutzt, könnte noch nützlich sein
     public boolean checkCollisionTile(Tile t) {
-        Bounds playerBounds = playerRec.localToScene(playerRec.getBoundsInLocal());
+        Bounds playerBounds = imageView.localToScene(imageView.getBoundsInLocal());
         Bounds tileBounds = t.localToScene(t.getBoundsInLocal());
         if(playerBounds.intersects(tileBounds)){
             System.out.println("Collision!");

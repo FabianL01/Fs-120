@@ -37,6 +37,7 @@ public class Farm extends Building {
      * @param stringFromSavedField Das ist der String, der das gespecherte Feld beschreibt bzw. der gespeichert wurde
      */
     public Farm(String stringFromSavedField) {
+        super(IMG_BD_VIEW, IMG_BG_VIEW, 3, 2, "Hofstelle");
         String[] propertiesOfField = stringFromSavedField.split(",");
         openToTraffic = false;
         silo = new CornTank( Double.parseDouble(propertiesOfField[0]), Double.parseDouble(propertiesOfField[1]));

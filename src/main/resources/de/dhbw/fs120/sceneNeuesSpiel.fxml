@@ -14,7 +14,7 @@
    <children>
       <ImageView id="wallpaper" fx:id="pngTItleScreen" blendMode="SRC_ATOP" fitHeight="404.0" fitWidth="688.0" layoutX="-24.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="startScreenImage.jpeg" />
+            <Image url="../../../img/startScreenImage.jpeg" />
          </image>
       </ImageView>
       <Label fx:id="labelTitleScreen2" layoutX="239.0" layoutY="41.0" prefHeight="61.0" prefWidth="186.0" text="Neues Spiel" textAlignment="CENTER">
