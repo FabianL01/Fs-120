@@ -1,6 +1,8 @@
 package de.dhbw.fs120.game;
 
+import de.dhbw.fs120.vehicle.*;
 import javafx.scene.control.Alert;
+import javafx.scene.layout.GridPane;
 import org.json.JSONObject;
 
 import java.io.FileWriter;
@@ -71,6 +73,7 @@ public class JSONHelper {
         try {
             FileWriter file = new FileWriter(filePath);
             file.write(jsonObject.toString());
+            file.close();
         } catch (IOException e){
             System.out.println("Fehler beim erstellen der Speicherdatei, die Datei konnte nicht gespeichert werden," +
                     "ihr Spielstand könnte verloren gegangen sein: " + e);
@@ -84,6 +87,13 @@ public class JSONHelper {
 
             System.exit(1);
         }
+
+    }
+
+    public void saveGame(String filePath, GridPane tiles, DifficultyLevel difficulty,
+                         int month, Player player, double siloLevel, double gasPrice,
+                         double cornPrice, Tractor tractor, Harvester harvester,
+                         Trailer trailer, Cultivator cultivator, Seeder seeder){
 
     }
 }
