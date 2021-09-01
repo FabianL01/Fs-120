@@ -1,6 +1,7 @@
 package de.dhbw.fs120.game;
 
 import de.dhbw.fs120.tile.*;
+import de.dhbw.fs120.vehicle.*;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.IntegerProperty;
 import javafx.geometry.Insets;
@@ -216,5 +217,9 @@ public class Map extends StackPane {
             e.printStackTrace();
         }
         return tileList;
+    }
+
+    public void saveGame(String filePath){
+
     }
 }

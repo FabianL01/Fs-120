@@ -89,11 +89,4 @@ public class JSONHelper {
         }
 
     }
-
-    public void saveGame(String filePath, GridPane tiles, DifficultyLevel difficulty,
-                         int month, Player player, double siloLevel, double gasPrice,
-                         double cornPrice, Tractor tractor, Harvester harvester,
-                         Trailer trailer, Cultivator cultivator, Seeder seeder){
-
-    }
 }
